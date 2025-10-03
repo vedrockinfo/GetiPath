@@ -1,186 +1,526 @@
-.OneTara {
-    .galleryGrid {
+section[id] {
+    display: none;
+    transition: $transition;
+}
+
+section.active {
+    display: block;
+}
+
+.aboutpath {
+    .pathAbb {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-        height: 100%;
-        grid-auto-rows: calc(100% / 2);
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5px;
 
-        &__item {
-            &:first-child {
-                grid-row: span 2;
-            }
-
-            a {
-                display: block;
-                height: 100%;
-                position: relative;
-
-                &::before {
-                    content: "";
-                    position: absolute;
-                    left: 0;
-                    right: 0;
-                    top: 0;
-                    bottom: 0;
-                    background-color: #000;
-                    opacity: 0;
-                    z-index: 1;
-                    transition: $transition;
-                }
-
-                &:hover {
-                    img {
-                        filter: grayscale(1);
-                    }
-
-                    &::before {
-                        opacity: .6;
-                    }
-
-                    i {
-                        transform: translate(-50%, -50%) scale(1);
-                        opacity: 1;
-                    }
-                }
-
-                i {
-                    position: absolute;
-                    left: 50%;
-                    top: 50%;
-                    color: #fff;
-                    font-size: 30px;
-                    transform: translate(-50%, -50%) scale(8);
-                    opacity: 0;
-                    z-index: 1;
-                    transition: $transition;
-                }
-
-                img {
-                    height: 100%;
-                    object-fit: cover;
-                }
-            }
+        @include respond (maxWidth992) {
+            margin-bottom: 3rem;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-    }
+        @include respond (maxWidth768) {
+            grid-template-columns: repeat(2, 1fr);
 
-    .oneService {
-        &__item {
-            position: relative;
-            padding-left: 45px;
-            margin-top: 20px;
-
-            &:not(:last-child) {
-                i {
-                    &::before {
-                        content: "";
-                        position: absolute;
-                        top: 100%;
-                        height: calc(100% + 50px);
-                        width: 1px;
-                        left: 50%;
-                        margin-left: -.5px;
-                        z-index: -1;
-                        @include BgClr();
-                    }
-
-                    &::after {
-                        content: "";
-                        height: 10px;
-                        width: 10px;
-                        left: 50%;
-                        border-radius: 50%;
-                        border: 3px solid $colorWhite;
-                        position: absolute;
-                        left: 50%;
-                        margin-left: -5px;
-                        top: calc(100% + 24px);
-                        @include BgClr();
-                    }
-                }
+            br {
+                display: none;
             }
 
-            i {
-                border: 1px solid;
-                line-height: 28px;
-                width: 30px;
-                position: absolute;
-                left: 0;
+            h6 {
                 text-align: center;
-                font-style: normal;
-                height: 30px;
-                font-size: 15px;
-                font-weight: 600;
-                top: 0;
-                background-color: $colorWhite;
-                @include fontClr();
+            }
+        }
+
+        @include respond (minmax992-12) {
+            grid-template-columns: repeat(2, 1fr);
+
+            br {
+                display: none;
+            }
+
+            h6 {
+                text-align: center;
+            }
+        }
+
+        .abbCard {
+            background: $colorSecondary;
+            padding: 5px;
+
+            .title {
+                text-align: center;
+                font-weight: bold;
+                font-size: 1.6rem;
+                line-height: 1.7;
+            }
+
+            .withArr {
+                font-size: 1.5rem;
+
+                span {
+                    color: #f5811e;
+                }
             }
         }
     }
 }
 
-.missionVission {
-    background: #f7f6fc;
-    position: relative;
+.diffPath {
+    background: $colorSecondary;
+}
 
-    &::before {
-        content: "";
-        background-image: url(../../images/parallax3.jpg);
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        mix-blend-mode: overlay;
+.pathNeed {
+    .pathNeedGrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+        grid-auto-rows: 140px;
+
+        @include respond (maxWidth992) {
+            margin-bottom: 3rem;
+        }
+
+        &__Item {
+            background: $colorSecondary;
+            padding: 0 15px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+.pathResult {
+    background: $colorSecondary;
+
+    .imgBox {
+        aspect-ratio: 16 / 9;
     }
 
-    .container {
-        position: relative;
-    }
+    .pathResultGrid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1.5rem;
+        margin-top: 2rem;
 
-    .vissionCard {
-        border-radius: 40px;
-        padding: 40px;
-        box-shadow: $boxShadowTwo;
+        @include respond (maxWidth768) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        &__Item {
+            background: $colorWhite;
+            border-radius: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 1.5rem;
+            text-align: center;
+            aspect-ratio: 1 / 1;
+        }
+    }
+}
+
+.howPathWork {
+    overflow: hidden;
+
+    .workGrid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1.5rem;
         position: relative;
-        background: $colorWhite;
+        background-image: linear-gradient(0deg, $colorPrimary 50%, $colorWhite 50%);
+
+        @include respond (maxWidth768) {
+            grid-template-columns: repeat(2, 1fr);
+        }
 
         &::before {
             content: "";
+            background-image: linear-gradient(0deg, $colorPrimary 50%, $colorWhite 50%);
             position: absolute;
-            left: 0;
-            right: 0;
-            border-radius: inherit;
-            top: 0;
             bottom: 0;
-            border-bottom: 1px solid;
-            opacity: 0;
-            @include borderClr();
-            transition: $transition;
+            left: calc(-100% + 1px);
+            width: 100%;
+            height: 100%;
         }
 
-        &:hover{
-            &::before{
-                border-width: 10px;
-                opacity: 1;
+        &::after {
+            content: "";
+            background-image: linear-gradient(0deg, $colorPrimary 50%, $colorWhite 50%);
+            position: absolute;
+            bottom: 0;
+            right: calc(-100% + 1px);
+            width: 100%;
+            height: 100%;
+        }
+
+        &__Item {
+            border-radius: 100%;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: $colorSecondary;
+            text-align: center;
+            padding: 0 2rem;
+            border: 2px solid $colorPrimary;
+            position: relative;
+
+            &::before {
+                content: "";
+                background: transparent;
+                border: 1.5px solid $colorWhite;
+                position: absolute;
+                border-radius: 100%;
+                top: 50%;
+                left: 50%;
+                width: calc(100% - 2rem);
+                height: calc(100% - 2rem);
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+}
+
+.howPathWorkPic {
+    background: $colorPrimary;
+    padding-top: 3rem;
+}
+
+.pathEmpowernment {
+    background: $colorSecondary;
+
+    .pathEmpowernmentGrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+
+        &__Item {
+            background: $colorTertiary;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 15px;
+            position: relative;
+
+            &::before {
+                content: "";
+                background: transparent;
+                border: 1.5px solid $colorWhite;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: calc(100% - 2rem);
+                height: calc(100% - 2rem);
+                transform: translate(-50%, -50%);
+            }
+
+            span {
+                color: $colorWhite;
+            }
+        }
+    }
+
+    .homeStretchGrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2px;
+
+        @include respond (maxWidth768) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        &__Item {
+            padding: 1rem;
+            background: $colorWhite;
+
+            &:first-child {
+                .content {
+                    background: rgba($colorTertiary, $alpha: 0.2);
+                    padding: 2rem;
+
+                    p {
+                        margin-bottom: 0;
+                    }
+                }
             }
         }
 
-         .imgWrapper{
-                text-align: center;
-                img{
-                    width: 75px;
+        .heads {
+            position: relative;
+            text-align: center;
+
+            &::before {
+                content: "";
+                background: $colorPrimary;
+                height: 3px;
+                width: 100%;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;
+            }
+
+            h3 {
+                display: inline-block;
+                position: relative;
+                z-index: 1;
+                color: $colorWhite;
+                font-size: 1.4rem;
+
+                &::before {
+                    content: "";
+                    background: $colorPrimary;
+                    border: 1px solid $colorPrimary;
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    width: 100%;
+                    height: 100%;
+                    z-index: -1;
+                    padding: 0 70px;
+                    transform: translateX(-50%);
+                    border-radius: 30px;
+                }
+            }
+        }
+    }
+}
+
+.pathBackground {
+    .pathbgGrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        @include respond (maxWidth768) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        gap: 1.5rem;
+
+        &__Item {
+            &:last-child {
+                grid-column: span 2;
+            }
+
+            background: $colorSecondary;
+            padding: 2rem;
+        }
+    }
+}
+
+.pathForward {
+    background: $colorPrimary;
+
+    .forwardCard {
+        background: $colorWhite;
+        border-radius: 1.6rem;
+        overflow: hidden;
+
+        .listWrapper {
+            padding: 1rem;
+        }
+
+        .headingQuartery {
+            color: $colorWhite;
+            background: $colorTertiary;
+            text-align: center;
+            padding: 1rem;
+            font-weight: bold;
+        }
+
+        li {
+            color: rgba($colorPrimary, $alpha: 1);
+            position: relative;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid rgba($colorPrimary, $alpha: 0.5);
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}
+
+.progress360 {
+    background: rgba($colorSecondary, $alpha: 1);
+
+    @include respond (minWidth992) {
+        .col-lg-7 {
+            padding-bottom: 0 !important;
+        }
+
+        .col-lg-5 {
+            background: linear-gradient(90deg, transparent 30%, rgba($colorTertiary, $alpha: 1) 30%, rgba($colorTertiary, $alpha: 1) 80%, transparent 80%);
+        }
+
+        .buddyBook {
+            position: relative;
+            height: 100%;
+
+            .cover {
+                width: 49%;
+                position: absolute;
+                left: 0;
+                top: 10rem;
+            }
+
+            .page {
+                width: 49%;
+                position: absolute;
+                bottom: 10rem;
+                right: 0;
+            }
+        }
+    }
+
+    @include respond (maxWidth992) {
+        .cover {
+            margin-bottom: 2rem;
+        }
+    }
+
+    .grid360 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+        row-gap: 4rem;
+
+        @include respond (maxWidth768) {
+            grid-template-columns: repeat(1, 1fr);
+            row-gap: 2rem;
+        }
+
+        &__Item {
+
+            &:nth-child(3),
+            &:nth-child(5),
+            &:nth-child(7) {
+                position: relative;
+                top: -7.5rem;
+
+                @include respond (maxWidth768) {
+                    position: static;
                 }
             }
 
-        &__content {
-            .headingTertiary{
-                text-align: center;
+            &:nth-child(1) {
+                background: none;
+                border: none;
+                border-radius: 0;
+
+                @include respond (maxWidth768) {
+                    display: none;
+                }
+            }
+
+            &:nth-last-child(1) {
+                background: none;
+                border: none;
+
+                @include respond (maxWidth768) {
+                    display: none;
+                }
+
+                border-radius: 0;
+            }
+
+            background: $colorWhite;
+            border: 2px solid rgba($colorPrimary, $alpha: 1);
+            border-radius: 7rem;
+            height: 12rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2.5rem;
+        }
+
+        &__ItemPic {
+
+            img {
+                width: 100%;
+                height: 10rem;
+                position: relative;
+                bottom: -2rem;
+                object-fit: contain;
+                object-position: bottom;
+            }
+        }
+    }
+}
+
+.learningbenefits {
+    .learningContent {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        @include respond (maxWidth768) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        gap: 1rem;
+
+        &__Item {
+            background: rgba($colorSecondary, $alpha: 1);
+            border-radius: 1.6rem;
+            padding: 3rem 2rem;
+            height: 100%;
+        }
+    }
+
+    .learningGallery {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1rem;
+
+        @include respond (maxWidth768) {
+            grid-template-columns: repeat(2, 1fr);
+            margin-top: 1rem;
+        }
+
+        &__Item {
+            height: 100%;
+
+            @include respond (minWidth768){
+                &:nth-child(1) {
+                grid-column: span 2;
+                grid-row: span 2;
+            }
+
+            &:nth-child(2) {
+                grid-column: 1 / span 2;
+                grid-row: 3 / span 2;
+            }
+
+            &:nth-last-child(1) {
+                grid-column: 5 / 6;
+                grid-row: 3 / span 2;
+            }
+
+            &:nth-last-child(2) {
+
+                grid-column: 5 / 6;
+                grid-row: 1 / span 2;
+            }
+            }
+
+            .imgWrapper {
+                position: relative;
+                overflow: hidden;
+                height: 100%;
+                border-radius: 1rem;
+
+                &:hover {
+                    img {
+                        transform: scale(1.1);
+                    }
+                }
+
+                img {
+                    transition: $transition;
+                    height: 100%;
+                }
             }
         }
     }

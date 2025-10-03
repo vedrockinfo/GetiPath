@@ -1,0 +1,16 @@
+.linkOne {
+    margin-top: 2rem;
+    a {
+        background: $colorPrimary;
+        color: $colorWhite;
+        padding: 9px 30px;
+        border-radius: 5px;
+        margin-left: 5px;
+        box-shadow: -5px -5px 0 $btnBorder;
+        border: 2px solid $colorPrimary;
+        text-transform: uppercase;
+        font-weight: normal;
+        display: inline-block;
+        transition: all .4s ease;
+    }
+}

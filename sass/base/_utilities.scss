@@ -82,7 +82,7 @@
     }
 }
 
-.sectionTitle{
+.sectionTitle {
     margin-bottom: 7rem;
 }
 
@@ -97,7 +97,7 @@
 
         &:before {
             content: "\f0a4";
-            @include fontClr();
+            color: $colorPrimary;
             position: absolute;
             top: 6px;
             left: -15px;
@@ -106,107 +106,113 @@
     }
 }
 
-
-.colorPicker {
-    position: fixed;
-    top: 20%;
-    z-index: 99;
-    background: lighten($colorDarkGray, $amount: 50);
-    padding: 0.5rem;
-    transform: translateX(calc(-100% - 5px));
-    transition: $transition;
-
-    &.active {
-        transform: translateX(0);
-    }
-
-    .spin {
-        position: absolute;
-        right: -3.5rem;
-        top: 0;
-        width: 3.5rem;
-        display: grid;
-        place-content: center;
-        color: $colorDarkGray;
-        aspect-ratio: 1 / 1;
-        background: lighten($colorDarkGray, $amount: 50);
-        cursor: pointer;
-        border-radius: 0 3rem 3rem 0;
-
-        i {
-            animation: spin 4s linear infinite;
-            font-size: $defaultFontSize;
-        }
-    }
-
-    .themeGrid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 0.4rem;
-    }
-
-    button {
-        display: inline-block;
-        width: 2.5rem;
-        height: 2.5rem;
-        background: var(--themeclr);
-        border-radius: 5px;
-        border: none;
-        box-shadow: none;
-        cursor: pointer;
-
-        &:focus,
-        &:active {
-            border: none;
-            box-shadow: none;
-            outline: none;
-        }
-    }
-}
-
-.borderLine {
-    position: relative;
-
-    &::before {
-        content: "";
-        background-size: contain;
-        width: 128px;
-        height: 9px;
-        position: absolute;
-        left: 0;
-        @include BgClr();
-        mask: url(../../images/icons/border-line.png) no-repeat center;
-        mask-size: contain;
-    }
-
-    &.center {
-        &::before {
-            transform: translateX(-50%);
-            left: 50%;
-        }
-    }
-}
-.owl-nav{
+.owl-nav {
     display: flex;
     gap: 5px;
     align-items: center;
-    .owl-next, .owl-prev{
+
+    .owl-next,
+    .owl-prev {
         border: none;
         width: 4rem;
         aspect-ratio: 1 / 1;
-        @include BgClrOnly();
-        span{
+
+        span {
             color: $colorWhite;
         }
-        &:focus{
+
+        &:focus {
             outline: none;
         }
     }
-    .owl-next{
+
+    .owl-next {
         border-radius: 0 50% 50% 0;
     }
-    .owl-prev{
+
+    .owl-prev {
         border-radius: 50% 0 0 50%;
     }
 }
 
+.education {
+    color: $colorPrimary;
+    font-family: "Chawp";
+    font-size: 7.2rem;
+    line-height: 0.8;
+
+    @include respond (maxWidth1200) {
+        font-size: 6rem;
+    }
+
+    @include respond (maxWidth992) {
+        display: block;
+    }
+}
+
+.imgBox {
+    position: relative;
+    height: 100%;
+
+    .imgWrapper {
+        position: relative;
+        border-radius: 50px 0 50px 0;
+        overflow: hidden;
+        height: 100%;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            pointer-events: none;
+            opacity: 1;
+            z-index: 3;
+            -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+        }
+
+        &::before {
+            top: -10%;
+            right: 51%;
+            bottom: -10%;
+            left: 50%;
+            background: hsla(0, 0%, 100%, .3);
+        }
+
+        &::after {
+            top: 50%;
+            right: -10%;
+            bottom: 50%;
+            left: -10%;
+            background: hsla(0, 0%, 100%, .6);
+        }
+
+        img {
+            transition: all 2s ease;
+            transform: scale(1.1);
+            height: 100%;
+            object-fit: cover;
+            object-position: right;
+            box-shadow: rgba(100, 100, 111, .2) 0px 7px 29px 0px;
+        }
+
+        &:hover {
+            &::before {
+                left: 0;
+                right: 0;
+                opacity: 0;
+                transition: all 900ms linear;
+            }
+
+            &::after {
+                top: 0;
+                bottom: 0;
+                opacity: 0;
+                transition: all 900ms linear;
+            }
+            img{
+                transform: scale(1.15);
+            }
+        }
+    }
+}
