@@ -35,6 +35,17 @@ h6 {
           font-size: 60%;
         }
     }
+    @include respond(maxWidth992) {
+    font-size: 3.6rem;
+  }
+
+  @include respond(maxWidth768) {
+    font-size: 2.4rem;
+  }
+
+  @include respond(maxWidth575) {
+    font-size: 2.1rem;
+  }
 }
 
 .headingSecondary {

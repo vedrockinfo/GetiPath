@@ -1,0 +1,84 @@
+.pathClassroom{
+    h6.headingTertiary{
+        color: $colorText;
+        padding: 1rem;
+        display: inline-block;
+        border-top: 2px solid $colorPrimary;
+        border-bottom: 2px solid $colorPrimary;
+        font-weight: 300;
+    }
+    .classgallery{
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        @include respond (maxWidth992){
+            grid-template-columns: repeat(4, 1fr);
+        }
+        @include respond (maxWidth575){
+            grid-template-columns: repeat(2, 1fr);
+            gap:0.5rem;
+        }
+        gap: 1rem;
+        &__Item{
+            overflow: hidden;
+            img{
+                transition: $transition;
+                aspect-ratio: 1 / 1;
+                &:hover{
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+    .pathWrapper{
+        background: $colorSecondary;
+        margin: 1rem 0;
+        @include respond (maxWidth992){
+            margin: 0.5rem 0;
+        }
+        .headTertiary{
+            font-weight: bold;
+            @include respond (minWidth992){
+                font-size: 2.4rem;
+            }
+        }
+        .container{
+            background: $colorPrimary;
+            border-radius: 1.6rem;
+            @include respond (maxWidth575){
+                max-width: 95%;
+                margin: auto;
+            }
+        }
+        .classNotice{
+            @include respond (minWidth992){
+                display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            }
+            &__List{
+                padding: 2rem;
+                text-align: center;
+                @include respond (maxWidth992){
+                     &:not(:last-child){
+                    border-bottom: 3px solid $colorWhite;
+                }
+                }
+               @include respond (minWidth992){
+                 max-width: calc(100% / 5);
+                flex: 0 0 calc(100% / 5);
+                &:not(:last-child){
+                    border-right: 5px solid $colorWhite;
+                }
+               }
+                p{
+                    font-weight: 700;
+                    color: $colorWhite;
+                    font-size: 1.8rem;
+                    @include respond (maxWidth575){
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
+    }
+}
