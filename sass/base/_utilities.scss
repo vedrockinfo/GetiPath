@@ -129,7 +129,7 @@
     .owl-next {
         border-radius: 0 50% 50% 0;
         position: absolute;
-        top: 40%;
+        top: 45%;
         right: -21px;
         transform: translateY(-50%);
     }
@@ -389,10 +389,14 @@
     .owl-next {
         width: 4.8rem;
         height: 4.8rem;
-        border: 2px solid;
-        border-color: $colorPrimary;
-        background: transparent;
+        border: none;
+        background: $colorWhite;
         border-radius: 100%;
+        box-shadow: $boxShadowTwo;
+        transition: $transition;
+        &:hover{
+            background: lighten($colorPrimary, $amount: 55);
+        }
 
         i {
             color: $colorPrimary;

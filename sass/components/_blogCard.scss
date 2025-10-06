@@ -1,0 +1,186 @@
+.blog-card {
+    border-radius: 1.6rem;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    .heading-quartery {
+        padding: 0;
+        border: none;
+    }
+
+    .imgBox {
+        height: 24rem;
+
+        span.cat {
+            position: absolute;
+            top: 20px;
+            background: #fff;
+            text-transform: uppercase;
+            color: $colorPrimary;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 5px 15px;
+            letter-spacing: 0.3px;
+        }
+
+        .imgWrapper {
+            border-radius: 1.6rem;
+        }
+
+        img {
+            transition: $transition;
+            width: 100%;
+        }
+    }
+
+    .blog-content {
+        padding: 2rem;
+        background: $colorWhite;
+        
+
+        .meta {
+            border-top: 1px solid rgba($colorText, $alpha: 0.2);
+            border-bottom: 1px solid rgba($colorText, $alpha: 0.2);
+            margin: 1.5rem 0;
+            padding: 0.8rem;
+            line-height: 1;
+
+            span {
+                font-size: 14px;
+                font-weight: 300;
+                font-style: oblique;
+            }
+
+            em {
+                display: block;
+                text-align: right;
+                font-size: 12px;
+                color: $colorText;
+                margin-top: 7px;
+            }
+        }
+
+        .linkTwo {
+            text-align: center;
+            margin-top: 2rem;
+
+            a {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.published {
+    font-size: 14px;
+    padding: 1rem 3rem;
+    border-top: 1px solid rgba($colorText, $alpha: 0.2);
+    border-bottom: 1px solid rgba($colorText, $alpha: 0.2);
+    margin-bottom: 2rem;
+    display: block;
+    color: $colorWhite;
+    background: $colorPrimary;
+
+    a {
+        color: $colorWhite;
+        font-weight: bold;
+    }
+}
+
+.exp {
+    // @include BtnOne();
+}
+
+.article-box {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    border-radius: 1.6rem;
+    overflow: hidden;
+    box-shadow: $boxShadow;
+
+    @include respond (minWidth768) {
+        margin-bottom: 2rem;
+    }
+
+    @media screen and (min-width:1400px) {
+        height: 30rem;
+    }
+
+    @include respond (maxWidth768) {
+        grid-template-columns: auto;
+    }
+
+    .img-wrapper {
+        position: relative;
+
+        img {
+            height: 100%;
+            object-fit: cover;
+            object-position: bottom;
+        }
+
+        span {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            background: $colorWhite;
+            color: $colorText;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 10px 20px;
+        }
+    }
+
+    .content-wrapper {
+        padding: 3rem;
+
+        .meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 1rem;
+            border-top: 1px solid lighten($colorText, $amount: 66);
+            border-bottom: 1px solid lighten($colorText, $amount: 66);
+
+            .date,
+            .writter,
+            .publish {
+                color: lighten($colorText, $amount: 30);
+                font-weight: normal;
+                font-size: 12px;
+
+                i {
+                    color: lighten($colorText, $amount: 30);
+                }
+            }
+        }
+
+        .btn-wrapper {
+            margin-top: 3rem;
+
+            @include respond (maxWidth768) {
+                text-align: center
+            }
+        }
+
+        a {
+            // @include BtnOne();
+        }
+    }
+}
+
+.single-blog {
+    blockquote.blockquote {
+        background: #c1c9d266;
+        padding: 20px;
+        border-left: 5px solid #234f81;
+        font-size: 20px;
+        font-weight: 300;
+        color: #234f81;
+
+        @include respond (maxWidth768) {
+            font-size: 16px;
+        }
+    }
+}

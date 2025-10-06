@@ -82,3 +82,44 @@
         }
     }
 }
+.blog-section{
+    .blog-content{
+        @include respond (minWidth1200){
+            height: 438px;
+        }
+    }
+    .publisher{
+        text-align: center;
+        h6{
+            font-size: 2.4rem;
+            font-weight: bold;
+            font-family: "Playfair Display", serif;
+            font-style: oblique;
+            margin-bottom: 1rem;
+        }
+    }
+    .headingSecondary{
+        text-align: center;
+        margin-top: 1rem;
+        &::before{
+            content: none;
+        }
+    }
+}
+.getiBlog{
+    .blog-content{
+        @include respond (minWidth1200){
+            height: 473px;
+        }
+    }
+    .headingSecondary{
+        text-align: center;
+        margin-top: 1rem;
+        &::before{
+            content: none;
+        }
+    }
+    .item{
+        margin: 0 7.5px 27px;
+    }
+}
