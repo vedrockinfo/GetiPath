@@ -1,0 +1,312 @@
+.whatTownhall {
+    background: $colorSecondary;
+}
+
+.whatHappens {
+    background: $colorSecondary;
+
+    &__Grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        @include respond (maxWidth992){
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include respond (maxWidth575){
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+    &__Item {}
+
+    &__card {
+        .icon {
+            outline: 20px solid $colorPrimary;
+            border: 5px solid $colorSecondary;
+            border-radius: 100%;
+            background: $colorWhite;
+            aspect-ratio: 1 / 1;
+            display: grid;
+            place-content: center;
+            @include respond (maxWidth992){
+            width: calc(100% - 5rem);
+            margin: auto;
+        }
+
+            img {
+                height: 15rem;
+            }
+        }
+
+        .content {
+            text-align: center;
+            margin-top: 4rem;
+
+            span {
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+.whoAttend {
+    .row{
+        @include respond (maxWidth992){
+            row-gap: 2rem;
+        }
+    }
+
+    .attendies {
+        background: $colorWhite;
+        text-align: center;
+        border-radius: 16px;
+        overflow: hidden;
+        transition: $transition;
+        box-shadow: $boxShadow;
+
+        &:hover {
+            transform: translateY(-10px);
+
+            .heading-tertiary {
+                color: $colorWhite;
+                background: $colorPrimary;
+            }
+        }
+
+        .heading-tertiary {
+            padding: 3rem 0;
+            margin: 0;
+            text-transform: uppercase;
+            font-weight: 700;
+            transition: $transition;
+        }
+    }
+}
+
+.screenShotArea {
+    position: relative;
+
+    .pt {
+        font-family: "Playfair Display", serif;
+        font-style: oblique;
+        font-size: 5.4rem;
+        line-height: 1;
+        @include respond (maxWidth992){
+            font-size: 3.6rem;
+        }
+        @include respond (maxWidth768){
+            font-size: 3rem;
+        }
+        @include respond (maxWidth575){
+            font-size: 2.4rem;
+        }
+    }
+
+    .monSun {
+        font-family: "Playfair Display", serif;
+        text-transform: uppercase;
+        color: $colorPrimary;
+        font-size: 2.4rem;
+        font-weight: 700;
+        @include respond (maxWidth768){
+            font-size: 1.8rem;
+            br{
+                display: none;
+            }
+        }
+    }
+
+    .headingQuartery {
+        font-family: "Playfair Display", serif;
+        padding: 0.5rem 1rem;
+        border-top: 3px solid $colorPrimary;
+        border-bottom: 3px solid $colorPrimary;
+        display: inline-block;
+        margin-top: 1.5rem;
+    }
+
+    p {
+        @include respond (minWidth1200) {
+            padding-right: 5rem;
+        }
+    }
+
+    .btnWrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        @include respond (maxWidth992){
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            margin-bottom: 2rem;
+        }
+    }
+
+    &::after {
+        content: "";
+        background-image: url("../../images/townhall-bg-01.png");
+        position: absolute;
+        right: 0;
+        top: 54.5%;
+        transform: translateY(-50%);
+        width: 54%;
+        height: 100%;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: -1;
+        @include respond (maxWidth992){
+            display: none;
+        }
+    }
+
+    .townhallSS {
+        height: 100%;
+        position: relative;
+
+        img {
+            position: absolute;
+            @include respond (maxWidth992){
+                position: relative;
+            }
+
+            &:first-child {
+                width: calc(100% - 11rem);
+                @include respond (maxWidth992){
+                    width: 90%;
+                    bottom: 0;
+                    margin-left: auto;
+                    display: block;
+                }
+                right: 0;
+                bottom: 4rem;
+            }
+
+            &:last-child {
+                top: 20%;
+                left: -17%;
+                width: 20rem;
+                @include respond (maxWidth992){
+                    bottom: 7rem;
+                    left: 0;
+                    top: auto;
+                }
+            }
+        }
+    }
+}
+
+.inSchools {
+    background: $colorSecondary;
+}
+
+.hostTownhall {
+    background-image: linear-gradient(0deg, $colorSecondary 55%, transparent 55%);
+
+    .townHallGrid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+        @include respond (maxWidth768){
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        &__Item {
+            background: $colorWhite;
+            border-radius: 1rem;
+            border-right: 5px solid $colorPrimary;
+            border-bottom: 5px solid $colorPrimary;
+            box-shadow: -1px -1px 4px $colorSecondary;
+            padding: 2rem;
+            text-align: center;
+            align-content: center;
+            height: 100%;
+        }
+    }
+
+    .offLineCard {
+        .imgBox {
+            border: 2px solid $colorWhite;
+
+            .imgWrapper {
+                border-radius: 0;
+            }
+        }
+
+        .content {
+            text-align: center;
+
+            .headingQuartery {
+                font-weight: 700;
+                margin-top: 2rem;
+            }
+
+            .date {
+                background: $colorWhite;
+                padding: 5px 15px;
+                border: 3px solid $colorPrimary;
+                display: inline-block;
+                border-bottom: 0;
+            }
+
+            a {
+                background: $colorPrimary;
+                color: $colorWhite;
+                text-transform: uppercase;
+                display: block;
+                padding: 1.5rem;
+                font-weight: bold;
+                border-radius: 0 0 2rem 2rem;
+            }
+        }
+    }
+}
+
+.movement {
+    .joinMovement {
+        display: grid;
+        grid-template-columns: 70% 30%;
+        background: $colorPrimary;
+        border-radius: 2rem;
+        overflow: hidden;
+        @include respond (maxWidth992){
+            grid-template-columns: auto;
+        }
+
+        .content {
+            clip-path: polygon(85% 0%, 100% 50%, 85% 100%, 0% 100%, 0 49%, 0% 0%);
+            background: $colorSecondary;
+            padding: 5rem 2rem;
+        }
+
+        .link {
+            align-self: center;
+            display: block;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            a{
+                color: $colorWhite;
+                text-transform: uppercase;
+                font-size: 2rem;
+                font-weight: bold;
+                border: 2px solid transparent;
+                transition: $transition;
+                padding: 1rem 2.5rem;
+                border-radius: 2rem;
+                line-height: 1.2;
+                &:hover{
+                    border-color: $colorWhite;
+                }
+                @include respond (maxWidth992){
+                    br{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

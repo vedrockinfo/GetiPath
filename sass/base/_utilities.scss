@@ -403,3 +403,63 @@
         }
     }
 }
+.textF{
+    font-style: oblique;
+    font-family: "Playfair", serif;
+    font-weight: 900;
+}
+.harwrdwrapper{
+    background: $colorPrimary;
+    border-left: 4px solid darken($colorPrimary, $amount: 10);
+    padding: 20px 30px;
+    color: #fff;
+    display: block;
+    margin: 2rem 0;
+    font-size: 16px;
+    font-style: normal;
+}
+.innerSection {
+    background: #2489ff;
+    min-height: 25rem;
+    display: grid;
+    place-content: center;
+    position: relative;
+    &::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.6);
+        z-index: 1;
+    }
+    .container{
+        position: relative;
+        z-index: 2;
+        text-align: center;
+    }
+    h1{
+        color: $colorWhite;
+        font-size: 3.6rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        @include respond (maxWidth992) {
+            font-size: 2.4rem;
+        }
+        @include respond (maxWidth768) {
+            font-size: 2rem;
+        }
+    }
+    ol.breadcrumb {
+    justify-content: center;
+    a{
+        font-size: 1.6rem;
+        color: $colorWhite;
+        font-weight: bold;
+    }
+    .breadcrumb-item+.breadcrumb-item::before{
+        color: $colorWhite!important;
+    }
+}
+}

@@ -1,6 +1,10 @@
 .innerHeaderArea {
     margin-top: 8rem;
 
+    @include respond (maxWidth768) {
+        margin-top: 5rem;
+    }
+
     .container {
         @include respond (maxWidth992) {
             max-width: 100%;
@@ -24,6 +28,10 @@
                         border-top: 2px solid #fff;
                         box-shadow: 0 -30px 0 $colorSecondary;
 
+                        @include respond (maxWidth768) {
+                            box-shadow: 0 -10px 0 $colorSecondary;
+                        }
+
                         .navTab {
                             background: $colorPrimary;
                             color: #fff;
@@ -41,10 +49,18 @@
                     border-top: 2px solid #fff;
                     box-shadow: 0 -30px 0 $colorPrimary;
 
+                    @include respond (maxWidth768) {
+                        box-shadow: 0 -10px 0 $colorPrimary;
+                    }
+
                     .navTab {
                         background: $colorSecondary;
                         height: 100%;
                         padding: 3rem 0;
+
+                        @include respond (maxWidth768) {
+                            padding: 1.5rem 0;
+                        }
 
                         h6 {
                             font-size: 2rem;

@@ -11,10 +11,15 @@
 @import "./components/button";
 @import "./components/heroSection";
 @import "./components/blogCard";
+@import "./components/townhallVector";
 
 @import "./layout/header";
 @import "./layout/mobileHeader";
 @import "./layout/footer";
 
+
+@import "./pages/connect";
 @import "./pages/home";
 @import "./pages/pathinaction";
+@import "./pages/townhall";
+@import "./pages/edleadership";
